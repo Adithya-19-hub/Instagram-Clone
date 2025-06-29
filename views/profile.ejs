@@ -1,0 +1,111 @@
+<!-- Title -->
+<title>
+    <%= params.title %>
+</title>
+
+<!-- Header has imported from partials -->
+<%- include('./Partials/header.ejs') %>
+
+<!-- Sidebar imported from partials -->
+    <div class="absolute z-[1]">
+        <%- include('./Partials/sidebar.ejs') %>
+    </div>
+
+    <div class="container-fluid h-[1080px] left-[50px] w-full bg-black absolute">
+        <% if(user.image){ %>
+            <div class="rounded-full h-[120px] w-[120px] mx-70 mt-12 overflow-hidden">
+                <img class="rounded-full h-[120px] w-[120px] object-cover absolute z-[1] cursor-pointer"
+                    src="/images/uploads/<%= user.image %>" alt="" />
+            </div>
+            <% } else{ %>
+                <div class="border-white border-[1px] rounded-full h-[120px] w-[120px] bg-sky-100 mx-70 mt-12"></div>
+                <% } %>
+                    <div class="flex flex-col absolute w-full top-[0] items-center mt-12">
+                        <div class="flex space-x-3">
+                            <div class="text-white text-xl ml-7">
+                                <a href="#">
+                                    <%= user.username %>
+                                </a>
+                            </div>
+                            <button
+                                class="py-1 px-4 mx- rounded-lg text-white font-semibold cursor-pointer bg-neutral-700 hover:bg-zinc-800"><a
+                                    href="./edit">Edit profile</a></button>
+                            <button
+                                class="py-1 px-4 rounded-lg text-white font-semibold cursor-pointer bg-neutral-700 hover:bg-zinc-800"><a
+                                    href="./logout">LogOut</a></button>
+                        </div>
+                        <div class="flex space-x-6 mt-5">
+                            <h1 class="text-white">
+                                <%= user.posts.length %> posts
+                            </h1>
+                            <h1 class="text-white"><a href="#">400 followers</a></h1>
+                            <h1 class="text-white"><a href="#">124 following</a></h1>
+                        </div>
+                        <h1 class="text-white mt-7 absolute top-[80px] left-[465px] text-md font-semibold">
+                            <%= user.fullname %>
+                        </h1>
+                        <p class="text-white absolute top-[150px] left-[464px] cursor-pointer">
+                            <%= user.bio %>
+                        </p>
+                    </div>
+                    <hr class="text-white mt-35 w-5xl mx-60" />
+                    <div>
+
+                        <div class="flex flex-row my-3 justify-center relative right-[100px] space-x-2">
+                            <svg aria-label="" class="text-white cursor-pointer my-1" fill="currentColor" height="12"
+                                role="img" viewBox="0 0 24 24" width="12">
+                                <title></title>
+                                <rect fill="none" height="18" stroke="currentColor" stroke-linecap="round"
+                                    stroke-linejoin="round" stroke-width="2" width="18" x="3" y="3"></rect>
+                                <line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" x1="9.015" x2="9.015" y1="3" y2="21"></line>
+                                <line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" x1="14.985" x2="14.985" y1="3" y2="21"></line>
+                                <line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" x1="21" x2="3" y1="9.015" y2="9.015"></line>
+                                <line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" x1="21" x2="3" y1="14.985" y2="14.985"></line>
+                            </svg>
+                            <h1 class="text-white text-base cursor-pointer"><a href="#">Posts</a></h1>
+                        </div>
+
+                        <div class="grid mx-60 grid-cols-3 gap-6 my-10">
+                            <% if(user.posts.length> 0){ %>
+                                <% user.posts.forEach(function(items){ %>
+                                    <div class="cursor-pointer">
+                                        <div class="border-[1px] h-[280px] w-[240px] rounded-sm overflow-hidden">
+                                            <img class="rounded-sm h-[280px] w-[240px] object-cover"
+                                                src="/images/uploads/<%= items.image %>" name='image' alt="" />
+                                        </div>
+                                    </div>
+                                    <% }) %>
+                                        <% }else{ %>
+                                            <div class="flex flex-col items-center relative left-[300px]">
+                                                <div
+                                                    class="border-white border-[1px] rounded-full h-[65px] w-[65px] cursor-pointer">
+                                                    <i
+                                                        class="ri-camera-line text-white text-4xl mx-2 relative top-[12px] left-[4px]"></i>
+                                                </div>
+                                                <h1 class="text-white font-bold text-3xl text-center my-4">Share Photos
+                                                </h1>
+                                                <p class="text-white text-center text-nowrap">When
+                                                    you share
+                                                    photos,they
+                                                    will appear
+                                                    on your
+                                                    profile.
+                                                </p>
+                                                <h1
+                                                    class="text-sky-600 text-md font-bold text-center cursor-pointer hover:text-white my-4">
+                                                    <a href="./post">Share your first photo</a>
+                                                </h1>
+                                            </div>
+                                            <% } %>
+                        </div>
+                    </div>
+
+                    <!-- Footer has imported from partials -->
+                    <div class="absolute left-[190px]">
+                        <%- include('./Partials/footer.ejs') %>
+                    </div>
+    </div>

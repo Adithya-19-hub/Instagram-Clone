@@ -1,0 +1,143 @@
+<!-- Title -->
+<title>
+    <%= params.title %>
+</title>
+
+<!-- Header has imported from partials -->
+<%- include('./Partials/header.ejs') %>
+
+    <!-- Sidebar imported from partials -->
+    <%- include('./Partials/sidebar.ejs') %>
+
+        <div class="h-[3200px] w-full bg-black flex flex-col items-center">
+            <div class="flex space-x-3 cursor-pointer">
+                <div class="my-5 border-[1px] rounded-full h-[55px] w-[57px]">
+                    <img class="h-[55px] w-[57px] rounded-full object-cover"
+                        src="https://images.unsplash.com/photo-1593085512500-5d55148d6f0d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y2FydG9vbnxlbnwwfHwwfHx8MA%3D%3D"
+                        alt="" />
+                </div>
+                <div class="my-5 border-[1px] rounded-full h-[55px] w-[57px]">
+                    <img class="h-[55px] w-[57px] rounded-full object-cover"
+                        src="https://images.unsplash.com/photo-1689659700109-db8a16a7da0a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt="" />
+                </div>
+                <div class="my-5 border-[1px] rounded-full h-[55px] w-[57px]">
+                    <img class="h-[55px] w-[57px] rounded-full object-cover"
+                        src="https://images.unsplash.com/photo-1593085512500-5d55148d6f0d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y2FydG9vbnxlbnwwfHwwfHx8MA%3D%3D"
+                        alt="" />
+                </div>
+                <div class="my-5 border-[1px] rounded-full h-[55px] w-[57px]">
+                    <img class="h-[55px] w-[57px] rounded-full object-cover"
+                        src="https://images.unsplash.com/photo-1689659700109-db8a16a7da0a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt="" />
+                </div>
+                <div class="my-5 border-[1px] rounded-full h-[55px] w-[57px]">
+                    <img class="h-[55px] w-[57px] rounded-full object-cover"
+                        src="https://images.unsplash.com/photo-1593085512500-5d55148d6f0d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y2FydG9vbnxlbnwwfHwwfHx8MA%3D%3D"
+                        alt="" />
+                </div>
+                <div class="my-5 border-[1px] rounded-full h-[55px] w-[57px]">
+                    <img class="h-[55px] w-[57px] rounded-full object-cover"
+                        src="https://images.unsplash.com/photo-1689659700109-db8a16a7da0a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt="" />
+                </div>
+                <div class="my-5 border-[1px] rounded-full h-[55px] w-[57px]">
+                    <img class="h-[55px] w-[57px] rounded-full object-cover"
+                        src="https://images.unsplash.com/photo-1593085512500-5d55148d6f0d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y2FydG9vbnxlbnwwfHwwfHx8MA%3D%3D"
+                        alt="" />
+                </div>
+                <div class="my-5 border-[1px] rounded-full h-[55px] w-[57px]">
+                    <img class="h-[55px] w-[57px] rounded-full object-cover"
+                        src="https://images.unsplash.com/photo-1689659700109-db8a16a7da0a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt="" />
+                </div>
+            </div>
+
+            <% if(user.posts.length> 0){ %>
+                <div class="my-2">
+                    <% if(post.forEach(function(items){ %>
+                        <div class="flex space-y-3 mt-7">
+                            <div class="cursor-pointer border-white rounded-full h-[30px] w-[30px] overflow-hidden">
+                                <% if(user.image){ %>
+                                    <img class="rounded-full h-[30px] w-[30px] object-cover"
+                                        src="/images/uploads/<%= user.image %>" alt="" />
+                                    <%}else{%>
+                                        <div
+                                            class="border-white border-[1px] rounded-full bg-sky-100 h-[30px] w-[30px]">
+                                        </div>
+                                        <%}%>
+                            </div>
+                            <h1 class="text-white mx-3 font-semibold cursor-pointer">
+                                <a href="./profile">
+                                    <%= user.username %>
+                                </a>
+                            </h1>
+                        </div>
+                        <div class="cursor-pointer my-3 border-white rounded-sm h-[430px] w-[360px] overflow-hidden">
+                            <img class="rounded-sm h-[430px] w-[360px] object-cover"
+                                src="/images/uploads/<%= items.image %>" alt="" />
+                        </div>
+
+                        <div class="flex space-x-">
+                            <div>
+                                <a href="/like/post/<%= items._id %>">
+                                    <% if(items.likes.indexOf(user._id)==-1){ %>
+                                        <i
+                                            class="ri-heart-line text-white text-2xl hover:cursor-pointer hover:text-zinc-600"></i>
+                                        <h1 class="text-white text-sm mx-1 my-1">0 likes
+                                        </h1>
+                                        <% }else{ %>
+                                            <i
+                                                class="ri-heart-fill text-red-600 text-2xl hover:cursor-pointer hover:text-red-600"></i>
+                                            <h1 class="text-white text-sm">
+                                                1 likes
+                                            </h1>
+                                            <% } %>
+                                </a>
+                            </div>
+                            <span class="text-white"></span>
+                            <svg aria-label="Comment"
+                                class="x1lliihq x1n2onr6 x5n08af text-white my-1  hover:cursor-pointer hover:text-zinc-600 mr-4"
+                                fill="currentColor" height="24" role="img" viewBox="0 0 24 24" width="24">
+                                <title>Comment</title>
+                                <path d="M20.656 17.008a9.993 9.993 0 1 0-3.59 3.615L22 22Z" fill="none"
+                                    stroke="currentColor" stroke-linejoin="round" stroke-width="2"></path>
+                            </svg>
+                            <svg aria-label="Share"
+                                class="x1lliihq x1n2onr6 xyb1xck text-white my-1  hover:cursor-pointer hover:text-zinc-600"
+                                fill="currentColor" height="24" role="img" viewBox="0 0 24 24" width="24">
+                                <title>Share</title>
+                                <line fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2" x1="22"
+                                    x2="9.218" y1="3" y2="10.083"></line>
+                                <polygon fill="none" points="11.698 20.334 22 3.001 2 3.001 9.218 10.084 11.698 20.334"
+                                    stroke="currentColor" stroke-linejoin="round" stroke-width="2"></polygon>
+                            </svg>
+                            <i
+                                class="ri-bookmark-line text-white text-2xl hover:cursor-pointer hover:text-zinc-600 relative left-[230px]">
+                            </i>
+                        </div>
+                        <div class="flex">
+                            <h1 class="text-white text-sm mx-1 my-1 cursor-pointer">
+                                <%= user.username %>
+                            </h1>
+                            <span class="text-white text-sm my-1 mx-2">
+                                <%= items.caption %>
+                            </span>
+                        </div>
+                        <% })) %>
+                </div>
+                <%}%>
+
+        </div>
+
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function (event) {
+                const scrollpos = localStorage.getItem('scrollpos');
+                if (scrollpos) window.scrollTo(0, scrollpos);
+            });
+
+            window.onbeforeunload = function (e) {
+                localStorage.setItem('scrollpos', window.scrollY);
+            };
+        </script>

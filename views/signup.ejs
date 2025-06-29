@@ -1,0 +1,43 @@
+<!-- Title -->
+<title>
+  <%= params.title %>
+</title>
+
+<!-- Header has imported from partials -->
+<%- include('./Partials/header.ejs') %>
+
+
+  <div class="container-fluid h-[780px] w-full bg-black flex flex-col items-center ">
+    <div class="border-slate-400 border-[1px] w-[315px] h-[540px] my-3 text-center rounded-sm">
+      <i data-visualcompletion="css-img" aria-label="Instagram" class="mt-10" role="img"
+        style="background-image: url(&quot;https://static.cdninstagram.com/rsrc.php/v4/yB/r/E7m8ZCMOFDS.png&quot;); background-position: 0px 0px; background-size: auto; width: 175px; height: 51px; background-repeat: no-repeat; display: inline-block;"></i>
+      <p class="text-slate-300 my-4">Sign up to see photos and videos <br />from your friends.</p>
+      <form action="/register" method="post">
+        <input class='text-sm text-white py-2 px-2 rounded-sm border-[1px] w-[250px]' type="text" name="email"
+          placeholder="Mobile Number or Email" required /><br />
+        <input class='text-sm text-white py-2 px-2 rounded-sm border-[1px] w-[250px] my-2' type="password"
+          name="password" placeholder="Password" required /><br />
+        <input class='text-sm text-white py-2 px-2 rounded-sm border-[1px] w-[250px]' type="text" name="fullname"
+          placeholder="Full Name" required /><br />
+        <input class='text-sm text-white py-2 px-2 rounded-sm border-[1px] w-[250px] my-2' type="text" name="username"
+          placeholder="Username" required /><br />
+        <p class="text-slate-400 text-[11px] tracking-wide my-1">People who use our service may have uploaded
+          <br />your
+          contact information to Instagram.<a href="#" class="text-sky-600">Learn <br />More</a>
+        </p>
+        <p class="text-slate-400 text-[12px] my-2">By signing up,you agree to our <a href="#" class="text-sky-600">Terms
+            ,
+            Privacy <br />Policy</a> and <a href="#" class="text-sky-600">Cookies Policy.</a>
+        </p>
+        <button class="text-white bg-sky-700 py-1 px-25 cursor-pointer rounded-lg my-3">Sign up</button>
+      </form>
+    </div>
+    <div class="border-slate-400 border-[1px] w-[315px] text-center rounded-sm py-3">
+      <h1 class="text-white">Have an account?</h1>
+      <button class="text-sky-600 cursor-pointer"><a href="./login">Log in</a></button>
+    </div>
+    
+    
+    <!-- Footer has imported from partials -->
+    <%- include('./Partials/footer.ejs') %>
+  </div>

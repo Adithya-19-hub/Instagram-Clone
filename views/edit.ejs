@@ -1,0 +1,68 @@
+<!-- Title -->
+<title>
+    <%= params.title %>
+</title>
+
+<!-- Header has imported from partials -->
+<%- include('./Partials/header.ejs') %>
+
+    <!-- Sidebar imported from partials -->
+    <div class="absolute z-[1]">
+        <%- include('./Partials/sidebar.ejs') %>
+    </div>
+
+    <div class="container-fluid h-[625px] w-full flex flex-col items-center bg-black">
+        <h1 class="text-white my-10 font-bold text-2xl tracking-wide relative right-[220px]">Edit profile</h1>
+        <form action="/update" method="post" enctype="multipart/form-data">
+            <div>
+                <div class="border-[1px] w-[590px] h-[80px] rounded-2xl flex bg-neutral-700">
+                    <div class="rounded-full bg-sky-100 h-[60px] w-[60px] my-2 mx-3 overflow-hidden">
+                        <% if(user.image){ %>
+                            <img class="cursor-pointer rounded-full h-[60px] w-[60px] object-cover"
+                                src="/images/uploads/<%= user.image %>" alt="" />
+                            <%}else{%>
+                                <div class="border-white border-[1px] rounded-full bg-sky-100"></div>
+                                <%}%>
+                    </div>
+                    <input type="text" class="h-[20px] py-3 text-white my-4 outline-none" name="username"
+                        value="<%= user.username %>">
+                    <input type="text"
+                        class="h-[20px] py-3 text-white my-4 outline-none absolute left-[398px] top-[140px]"
+                        name="fullname" value="<%= user.fullname %>" />
+                    <input id="openfile" type="file" name="image" hidden />
+                    <h2 id="change-photo"
+                        class="text-white bg-sky-400 rounded-xl py-2 px-4 h-[40px] relative top-[20px] left-[150px] cursor-pointer hover:bg-sky-700">
+                        Change
+                        photo</h2>
+                </div>
+
+                <h1 class="text-white my-3 text-lg font-bold tracking-wide">Bio</h1>
+                <textarea class="text-white border-white rounded-md h-[70px] w-[590px] border-[1px] p-2" name="bio"
+                    id=""><%= user.bio %></textarea>
+
+                <h1 class="text-white my-4">Gender</h1>
+                <select
+                    class="cursor-pointer hover:bg-zinc-900 text-white border-white border-[1px] rounded-md py-2 px-3 w-[590px]"
+                    name="" id="">
+                    <option class="text-white bg-black" value="">Male</option>
+                    <option class="text-white bg-black" value="">Female</option>
+                    <option class="text-white bg-black" value="">Other</option>
+                </select>
+                <p class="text-white mt-2 mx-2">This won't be part of your public profile.</p>
+                <input
+                    class="cursor-pointer text-white bg-sky-600 py-2 px-12 rounded-md relative left-[440px] top-[20px] hover:bg-sky-700"
+                    type="submit" />
+        </form>
+    </div>
+
+    <!-- Footer has imported from partials -->
+    <div class="relative left-[80px] top-[10px]">
+        <%- include('./Partials/footer.ejs') %>
+    </div>
+
+
+    <script>
+        document.querySelector('#change-photo').addEventListener('click', function () {
+            document.querySelector('#openfile').click();
+        });
+    </script>

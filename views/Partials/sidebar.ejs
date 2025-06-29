@@ -1,0 +1,24 @@
+<div class="flex flex-col bg-black fixed h-[780px]">
+    <i data-visualcompletion="css-img" aria-label="Instagram" class="cursor-pointer mt-13 mx-6" role="img"
+        style="background-image: url(&quot;https://static.cdninstagram.com/rsrc.php/v4/yB/r/E7m8ZCMOFDS.png&quot;); background-position: 0px 0px; background-size: auto; width: 175px; height: 51px; background-repeat: no-repeat; display: inline-block;"></i>
+    <div class="flex space-x-3 hover:cursor-pointer hover:bg-zinc-800 rounded-md mt-10 py-1 px-2 mx-5">
+        <i class="ri-home-4-line text-white text-2xl"></i>
+        <h1 class="text-white text-xl font-semibold rounded-lg"><a href="/feed">Home</a></h1>
+    </div>
+    <div class="flex space-x-3 hover:cursor-pointer hover:bg-zinc-800 rounded-md mt-6 py-1 px-2 mx-5">
+        <i class="ri-search-line text-white text-2xl"></i>
+        <h1 class="text-white text-xl font-semibold rounded-lg"><a href="#">Search</a></h1>
+    </div>
+    <div class="flex space-x-3 hover:cursor-pointer hover:bg-zinc-800 rounded-md mt-5 py-2 px-2 mx-5">
+        <div class="cursor-pointer border-white rounded-full h-[25px] w-[25px] overflow-hidden">
+            <% if(user.image){ %>
+                <img class="rounded-full h-[30px] w-[30px] object-cover" src="/images/uploads/<%= user.image %>"
+                    alt="" />
+                <%}else{%>
+                    <div class="border-white border-[1px] rounded-full bg-sky-100 h-[30px] w-[30px]">
+                    </div>
+                    <%}%>
+        </div>
+        <h1 class="text-white text-xl font-semibold rounded-lg"><a href="/profile">Profile</a></h1>
+    </div>
+</div>
