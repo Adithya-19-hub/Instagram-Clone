@@ -4,11 +4,11 @@
 
 <h4>🔧Tech Stack:</h4>
 
-Frontend: EJS, Tailwind CSS, HTML
-Backend: Node.js, Express.js
-Database: MongoDB with Mongoose
-Templating Engine: EJS
-Authentication: Passport.js (Local Strategy)
+Frontend: EJS, Tailwind CSS, HTML<br/>
+Backend: Node.js, Express.js<br/>
+Database: MongoDB with Mongoose<br/>
+Templating Engine: EJS<br/>
+Authentication: Passport.js (Local Strategy)<br/>
 File Uploads: Multer (for image handling)
 
 <h4>🚀Key Features:</h4>
